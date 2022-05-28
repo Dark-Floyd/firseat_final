@@ -21,11 +21,12 @@ const styles = StyleSheet.create({
   },
   headerTitleStation: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 22,
     width:'100%',
     textAlign:'center',
     borderBottomColor:Colors.headline,
-    borderBottomWidth:0.5,
+    borderBottomWidth:0.75,
+    padding:3,
   },
   headerTitle: {
     color: 'white',

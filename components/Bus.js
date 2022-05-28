@@ -31,8 +31,9 @@ const Bus = (props) => {
           <Text style={styles.details}>Destination: {props.destination}</Text>
           <Text style={styles.details}>Next Bus: {props.frequency}</Text>
           <Center>
-            <Box style={styles.icon} width={12}>
+            <Box style={styles.icon} width={24}>
               <FontAwesome5 name="ticket-alt" size={32} color="white" />
+              <Text style={{color:'white'}}>Order Ticket</Text>
             </Box>
           </Center>
         </View>
@@ -49,14 +50,14 @@ const styles = StyleSheet.create({
     elevation: 8,
     backgroundColor: 'white',
     margin: 10,
-    height: 110,
+    height: 140,
     borderRadius: 15,
     marginVertical: 5,
   },
   headerTitle: {
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
-    fontSize: 18,
+    fontSize: 20,
     color: Colors.notification,
     fontWeight: 'bold',
     backgroundColor: Colors.accent,
@@ -67,12 +68,13 @@ const styles = StyleSheet.create({
     color: 'grey',
     borderBottomWidth: 0.5,
     paddingLeft: 5,
+    fontSize:15,
   },
   icon: {
     margin: 4,
     alignItems: 'center',
     backgroundColor: Colors.notification,
-    alignItems: 'center',
+    padding:5,
     borderRadius:10,
   },
   iconBox:{

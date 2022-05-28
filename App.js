@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View, FlatList } from 'react-native'
+import { StyleSheet, View, FlatList, Text } from 'react-native'
 import Header from './components/Header'
 import { Provider } from 'jotai'
 import Bus from './components/Bus'
@@ -47,7 +47,7 @@ export default function App() {
   const renderLines = (lines) => {
     return (
       <FlatList
-        showsVerticalScrollIndicator={false}
+        showsVerticalScrollIndicator={true}
         style={styles.list}
         data={lines}
         renderItem={(itemData) => (
@@ -85,6 +85,7 @@ export default function App() {
         <View style={styles.container}>
           <Modal maxWidth="450px" style={styles.modalContent} isOpen={NFCModal}>
             <Center>
+            <Text style={styles.headerTitle}>Firseat</Text>
               <MaterialCommunityIcons
                 name="cellphone-nfc"
                 size={120}
@@ -133,4 +134,10 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 10,
   },
+  headerTitle:{
+    color: 'white',
+    fontSize: 28,
+    fontFamily:'sans-serif-condensed',
+    fontWeight:'bold'
+  }
 })

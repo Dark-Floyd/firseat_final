@@ -64,8 +64,8 @@ const OrderTicketModal = (props) => {
             <Button.Group space={20}>
               <Button
                 w="100"
-                variant="outline"
-                colorScheme="darkBlue"
+                variant="solid"
+                
                 onPress={orderHandler}
                 rounded="xl"
                 style={styles.button}
@@ -113,9 +113,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: Colors.notification,
+    backgroundColor: Colors.accent,
     borderRadius: 15,
-    color: Colors.notification,
+    color: 'white',
+    
   },
 })
 export default OrderTicketModal
