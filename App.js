@@ -5,7 +5,7 @@ import { Provider } from 'jotai'
 import Bus from './components/Bus'
 import { useState, useCallback, useEffect } from 'react'
 import Station from './components/Station'
-import { NativeBaseProvider, Center, Spinner, Modal, Button } from 'native-base'
+import { NativeBaseProvider, Center, Spinner, Modal, Button, useToast } from 'native-base'
 import TicketBar from './components/TicketBar'
 import { getAllLines, getStation } from './api'
 import NfcManager, { NfcTech } from 'react-native-nfc-manager'
@@ -13,23 +13,29 @@ import { MaterialCommunityIcons } from '@expo/vector-icons'
 import Colors from './constants/colors'
 
 export default function App() {
+  const toast = useToast()
+  const id = 'toast_error'
   async function readNdef() {
     try {
       // register for the NFC tag with NDEF in it
       await NfcManager.requestTechnology(NfcTech.Ndef)
       // the resolved tag object will contain `ndefMessage` property
       const tag = await NfcManager.getTag()
-      console.warn('Tag found', tag)
+      //console.warn('Tag found', tag)
       if(tag.id==stationApi.NFCToken)
         setNFCModal(false)
-      //
     } catch (ex) {
-      console.warn('Oops!', ex)
+      toast.show({
+        id,
+        title: `No Station was found.`,
+        placement: 'top',
+      })
     } finally {
       // stop the nfc scanning
       NfcManager.cancelTechnologyRequest()
     }
   }
+  
   const [ticket, setTicket] = useState(null)
   const [linesApi, setLinesApi] = useState([])
   const [stationApi, setStationApi] = useState(null)

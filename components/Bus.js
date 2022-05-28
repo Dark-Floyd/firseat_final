@@ -30,12 +30,9 @@ const Bus = (props) => {
           <Text style={styles.headerTitle}>{props.line}</Text>
           <Text style={styles.details}>Destination: {props.destination}</Text>
           <Text style={styles.details}>Next Bus: {props.frequency}</Text>
-          <Center>
-            <Box style={styles.icon} width={24}>
-              <FontAwesome5 name="ticket-alt" size={32} color="white" />
-              <Text style={{color:'white'}}>Order Ticket</Text>
-            </Box>
-          </Center>
+            <Center >
+              <Text style={styles.icon}>Order Ticket</Text>
+            </Center>
         </View>
       </TouchableOpacity>
     </View>
@@ -50,7 +47,7 @@ const styles = StyleSheet.create({
     elevation: 8,
     backgroundColor: 'white',
     margin: 10,
-    height: 140,
+    height: 130,
     borderRadius: 15,
     marginVertical: 5,
   },
@@ -76,11 +73,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.notification,
     padding:5,
     borderRadius:10,
+    fontSize:18,
+    color:'white',
+    marginTop:12,
+    justifyContent:'center'
   },
-  iconBox:{
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
+ 
 })
 
 export default Bus
